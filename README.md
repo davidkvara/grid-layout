@@ -1,2 +1,3 @@
-# gridlayout
-Getting started with grid layout
+# GridLayout
+
+CSS Grid examples

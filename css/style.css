@@ -1,0 +1,283 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+  background: whitesmoke;
+  color: #374553;
+  font-size: 17px;
+  padding: 2rem 1rem;
+  line-height: 1.5;
+  border-top: 4px solid lightgray;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+a:focus,
+button:focus {
+  outline: 4px solid gold;
+  text-decoration: underline;
+}
+
+img {
+  max-width: 100%;
+  vertical-align: middle;
+}
+
+.demo-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+hr {
+  margin: 4rem 0;
+  border: 0;
+  border-top: 5px solid #999;
+}
+
+h2 {
+  margin-bottom: 2.5rem;
+  font-size: 2.5rem;
+  text-align: center;
+  background-color: gray;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: rgba(255, 255, 255, 0.5) 0px 3px 3px;
+}
+
+/* .g-description {
+  text-align: center;
+  font-weight: 600;
+  font-size: 1.3rem;
+  font-family: monospace;
+  margin-bottom: 2.5rem;
+}
+
+.g-description:before {
+  content: "[";
+}
+
+.g-description:after {
+  content: "]";
+} */
+
+/**********************************************
+                GRID EXAMPLES
+**********************************************/
+
+/* example 1 */
+
+.ex1-container {
+  display: grid;
+  grid-auto-rows: minmax(120px, auto);
+  grid-gap: 0.75rem;
+}
+
+.ex1-item {
+  background: #d3cce3; /* fallback for old browsers */
+  background: linear-gradient(150deg, #e9e4f0, #d3cce3);
+  border-radius: 3px;
+  padding: 0.75rem;
+  font-weight: 500;
+  border: 1px solid #d9f0f0;
+}
+
+@media (min-width: 620px) {
+  .ex1-container {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-areas: "header header header" "main main main" "main main main" "sidebar widget widget" "footer footer footer";
+  }
+
+  .header {
+    grid-area: header;
+  }
+
+  .main {
+    grid-area: main;
+  }
+
+  .sidebar {
+    grid-area: sidebar;
+  }
+
+  .widget {
+    grid-area: widget;
+  }
+
+  .footer {
+    grid-area: footer;
+  }
+}
+@media (min-width: 900px) {
+  .ex1-container {
+    grid-template-areas: "header header header" "main main sidebar" "main main widget" "footer footer footer";
+  }
+}
+
+/* example 2 */
+
+.ex2-container {
+  background: #74ebd5;
+  background: linear-gradient(to left, #acb6e5, #74ebd5);
+  display: grid;
+  grid-auto-rows: minmax(140px, auto);
+  grid-gap: 1px;
+  padding: 1px;
+}
+
+.ex2-item {
+  background: #fff;
+  padding: 0.75rem;
+  mix-blend-mode: lighten; /* or soft-light */
+}
+
+@media (min-width: 660px) {
+  .ex2-container {
+    grid-template-areas: "header header" "main item4" "main item5" "main item5" "ad item6" "fin fin";
+  }
+
+  .ex2-item:nth-child(1) {
+    grid-area: header;
+  }
+
+  .ex2-item:nth-child(2) {
+    grid-area: main;
+  }
+
+  .ex2-item:nth-child(3) {
+    grid-area: ad;
+  }
+
+  .ex2-item:nth-child(4) {
+    grid-area: item4;
+  }
+
+  .ex2-item:nth-child(5) {
+    grid-area: item5;
+  }
+
+  .ex2-item:nth-child(6) {
+    grid-area: item6;
+  }
+
+  .ex2-item:nth-child(7) {
+    grid-area: fin;
+  }
+}
+
+@media (min-width: 940px) {
+  .ex2-container {
+    grid-template-areas: "header main item4" "header main item5" "header main item6" "header ad item6" "header ad item6" "fin fin fin";
+  }
+}
+
+/* example 3 */
+
+.ex3-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 1rem;
+}
+
+.ex3-item {
+  background: #fff;
+  box-shadow: 0 0 1px rgba(39, 44, 49, 0.1), 0 3px 16px rgba(39, 44, 49, 0.07);
+  border-bottom: 3px solid #f4f4f4;
+}
+
+.ex3-link {
+  display: block;
+  min-height: 100%;
+}
+
+.ex3-cover {
+  object-fit: cover;
+  max-height: 180px;
+  width: 100%;
+  height: 100%;
+}
+
+.ex3-text {
+  padding: 0.9rem;
+  text-align: center;
+  font-size: 0.95rem;
+}
+
+@media (min-width: 580px) {
+  .ex3-container {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-gap: 2rem;
+  }
+}
+
+/* example 4 */
+
+.ex4-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  grid-auto-rows: minmax(100px, auto);
+  grid-gap: 1rem;
+}
+
+.ex4-item {
+  padding: 1rem;
+  color: #fff;
+  border-radius: 4px;
+  background: teal;
+}
+
+.ex4-item:nth-child(even) {
+  background: salmon;
+}
+
+/* example 5 */
+
+.ex5-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+  grid-auto-rows: 80px;
+  grid-gap: 2px;
+  grid-auto-flow: dense;
+}
+
+.ex5-container > div {
+  padding: 10px;
+  color: #fff;
+  border-radius: 3px;
+  background: royalblue;
+}
+
+.ex5-container div:nth-child(even) {
+  background: salmon;
+}
+
+.ex5-container div:nth-child(4),
+.ex5-container div:nth-child(32),
+.ex5-container div:nth-child(8),
+.ex5-container div:nth-child(17),
+.ex5-container div:nth-child(25) {
+  grid-column-end: span 2;
+  grid-row-end: span 2;
+}
+.ex-container div:nth-child(21) {
+  grid-column-end: span 3;
+}
+
+.ex5-container div:nth-child(20) {
+  grid-row-end: span 2;
+}
+
+.ex5-container div:nth-child(10) {
+  grid-column-end: span 3;
+}
+
+.ex5-container div:nth-child(5) {
+  grid-column-end: span 3;
+}
